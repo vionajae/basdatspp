@@ -18,8 +18,8 @@ import javax.swing.table.DefaultTableModel;
  */
 public class FKelas extends javax.swing.JInternalFrame {
     void kosong(){
-        nama.setSelectedItem("");
-        koke.setSelectedItem("");
+        nama.setText("");
+        koke.setText("");
     }
     /**
      * Creates new form FKelas
@@ -65,8 +65,8 @@ public class FKelas extends javax.swing.JInternalFrame {
         batal = new javax.swing.JButton();
         hapus = new javax.swing.JButton();
         update = new javax.swing.JButton();
-        nama = new javax.swing.JComboBox();
-        koke = new javax.swing.JComboBox();
+        nama = new javax.swing.JTextField();
+        koke = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabel = new javax.swing.JTable();
         status = new javax.swing.JLabel();
@@ -115,9 +115,17 @@ public class FKelas extends javax.swing.JInternalFrame {
             }
         });
 
-        nama.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "X", "XI", "XII" }));
+        nama.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                namaActionPerformed(evt);
+            }
+        });
 
-        koke.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Rekayasa Perangkat Lunak", "Teknik Kendaraan Ringan", "Teknik Pemesinan", "Akuntansi" }));
+        koke.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                kokeActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -141,8 +149,8 @@ public class FKelas extends javax.swing.JInternalFrame {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(batal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(update, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE)))
-                            .addComponent(nama, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(koke, 0, 222, Short.MAX_VALUE))))
+                            .addComponent(nama)
+                            .addComponent(koke))))
                 .addContainerGap(43, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -166,7 +174,7 @@ public class FKelas extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(hapus)
                     .addComponent(update))
-                .addContainerGap(83, Short.MAX_VALUE))
+                .addContainerGap(89, Short.MAX_VALUE))
         );
 
         tabel.setModel(new javax.swing.table.DefaultTableModel(
@@ -213,14 +221,14 @@ public class FKelas extends javax.swing.JInternalFrame {
     private void tabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelMouseClicked
         // TODO add your handling code here:
         int no_baris = tabel.getSelectedRow();
-        nama.setSelectedItem(tabel.getValueAt(no_baris, 1).toString());
-        koke.setSelectedItem(tabel.getValueAt(no_baris, 2).toString());
+        nama.setText(tabel.getValueAt(no_baris, 1).toString());
+        koke.setText(tabel.getValueAt(no_baris, 2).toString());
     }//GEN-LAST:event_tabelMouseClicked
 
     private void simpanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_simpanMouseClicked
         // TODO add your handling code here:
-        String na = (String) nama.getSelectedItem();
-        String ko = (String) koke.getSelectedItem();
+        String na = (String) nama.getText();
+        String ko = (String) koke.getText();
         String sql = "insert into kelas(nama_kelas,kompetensi_keahlian) values('"+na+"','"+ko+"')";
         ModelDatabase md = new ModelDatabase();
         if(md.rubahData(sql)){
@@ -236,8 +244,8 @@ public class FKelas extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         int no_baris = tabel.getSelectedRow();
         String kode = tabel.getValueAt(no_baris, 0).toString();
-        String na = (String) nama.getSelectedItem();
-        String ko = (String) koke.getSelectedItem();
+        String na = (String) nama.getText();
+        String ko = (String) koke.getText();
         String sql = "update kelas set nama_kelas='"+na+"',kompetensi_keahlian='"+ko+"' where id_kelas="+kode;
         ModelDatabase md = new ModelDatabase();
         if(md.rubahData(sql)){
@@ -271,6 +279,14 @@ public class FKelas extends javax.swing.JInternalFrame {
         kosong();
     }//GEN-LAST:event_batalMouseClicked
 
+    private void namaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_namaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_namaActionPerformed
+
+    private void kokeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kokeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_kokeActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton batal;
@@ -280,8 +296,8 @@ public class FKelas extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JComboBox koke;
-    private javax.swing.JComboBox nama;
+    private javax.swing.JTextField koke;
+    private javax.swing.JTextField nama;
     private javax.swing.JButton simpan;
     private javax.swing.JLabel status;
     private javax.swing.JTable tabel;

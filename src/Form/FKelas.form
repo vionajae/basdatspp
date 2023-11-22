@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JInternalFrameFormInfo">
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JInternalFrameFormInfo">
   <Properties>
     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
       <Color blue="ff" green="99" red="33" type="rgb"/>
@@ -87,8 +87,8 @@
                                       <Component id="update" alignment="0" pref="108" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
-                              <Component id="nama" max="32767" attributes="0"/>
-                              <Component id="koke" pref="222" max="32767" attributes="0"/>
+                              <Component id="nama" alignment="0" max="32767" attributes="0"/>
+                              <Component id="koke" alignment="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -119,7 +119,7 @@
                       <Component id="hapus" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="update" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="83" max="32767" attributes="0"/>
+                  <EmptySpace pref="89" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -187,28 +187,15 @@
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="updateMouseClicked"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JComboBox" name="nama">
-          <Properties>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="3">
-                <StringItem index="0" value="X"/>
-                <StringItem index="1" value="XI"/>
-                <StringItem index="2" value="XII"/>
-              </StringArray>
-            </Property>
-          </Properties>
+        <Component class="javax.swing.JTextField" name="nama">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="namaActionPerformed"/>
+          </Events>
         </Component>
-        <Component class="javax.swing.JComboBox" name="koke">
-          <Properties>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
-                <StringItem index="0" value="Rekayasa Perangkat Lunak"/>
-                <StringItem index="1" value="Teknik Kendaraan Ringan"/>
-                <StringItem index="2" value="Teknik Pemesinan"/>
-                <StringItem index="3" value="Akuntansi"/>
-              </StringArray>
-            </Property>
-          </Properties>
+        <Component class="javax.swing.JTextField" name="koke">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="kokeActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

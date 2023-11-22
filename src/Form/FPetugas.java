@@ -41,6 +41,7 @@ public class FPetugas extends javax.swing.JInternalFrame {
                 baris.add(rs.getInt("id_petugas"));
                 baris.add(rs.getString("username"));
                 baris.add(rs.getString("password"));
+                baris.add(rs.getString("nama_petugas"));
                 baris.add(rs.getString("level"));
                 model.addRow(baris);
             }
